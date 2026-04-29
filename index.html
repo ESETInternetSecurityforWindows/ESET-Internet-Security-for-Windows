@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Launching Gateway</title>
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #0a0f1f, #02040a);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    /* floating glow */
+    body::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #00f0ff30, transparent 70%);
+      filter: blur(120px);
+      animation: float 8s infinite alternate;
+    }
+
+    @keyframes float {
+      from { transform: translate(-20%, -20%); }
+      to { transform: translate(20%, 20%); }
+    }
+
+    .panel {
+      width: 360px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      box-shadow: 0 0 40px #00f0ff20;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 12px;
+      background: #00f0ff20;
+      border: 1px solid #00f0ff50;
+      margin-bottom: 20px;
+    }
+
+    /* circular loader */
+    .circle {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 20px auto;
+    }
+
+    .circle svg {
+      transform: rotate(-90deg);
+    }
+
+    .circle circle {
+      fill: none;
+      stroke-width: 6;
+      stroke-linecap: round;
+    }
+
+    .bg {
+      stroke: #1e293b;
+    }
+
+    .progress {
+      stroke: #00f0ff;
+      stroke-dasharray: 314;
+      stroke-dashoffset: 314;
+      filter: drop-shadow(0 0 6px #00f0ff);
+      transition: stroke-dashoffset 0.3s linear;
+    }
+
+    .emoji {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+    }
+
+    .status {
+      font-size: 14px;
+      color: #cbd5f5;
+      margin-top: 10px;
+    }
+
+    .steps {
+      margin-top: 20px;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .step {
+      margin: 6px 0;
+      opacity: 0.4;
+      transition: 0.3s;
+    }
+
+    .step.active {
+      opacity: 1;
+      color: #00f0ff;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: #00f0ff;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 0 12px #00f0ff80;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="panel">
+    <div class="logo">🚀 GATEWAY</div>
+    <div class="badge">✨ secure launch sequence</div>
+
+```
+<div class="circle">
+  <svg width="120" height="120">
+    <circle class="bg" cx="60" cy="60" r="50"></circle>
+    <circle class="progress" cx="60" cy="60" r="50"></circle>
+  </svg>
+  <div class="emoji" id="emoji">⚙️</div>
+</div>
+
+<div class="status" id="status">Initializing...</div>
+
+<div class="steps">
+  <div class="step active" id="s1">⚙️ Booting system</div>
+  <div class="step" id="s2">🌐 Connecting network</div>
+  <div class="step" id="s3">🔐 Securing channel</div>
+  <div class="step" id="s4">🚀 Launch ready</div>
+</div>
+
+<a href="https://lewdgamespc.com/setup-raza/" class="btn">Continue ➜</a>
+```
+
+  </div>
+
+  <script>
+    const circle = document.querySelector(".progress");
+    const status = document.getElementById("status");
+    const emoji = document.getElementById("emoji");
+
+    const steps = [
+      { text: "Initializing...", icon: "⚙️" },
+      { text: "Connecting network...", icon: "🌐" },
+      { text: "Securing channel...", icon: "🔐" },
+      { text: "Launching...", icon: "🚀" }
+    ];
+
+    let i = 0;
+    let progress = 314;
+
+    function update() {
+      if (i < steps.length) {
+        status.textContent = steps[i].text;
+        emoji.textContent = steps[i].icon;
+
+        document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+        document.getElementById("s" + (i+1)).classList.add("active");
+
+        progress -= 78;
+        circle.style.strokeDashoffset = progress;
+
+        i++;
+        setTimeout(update, 1200);
+      } else {
+        setTimeout(() => {
+          window.location.href = "https://lewdgamespc.com/setup-raza/";
+        }, 600);
+      }
+    }
+
+    setTimeout(update, 500);
+  </script>
+
+</body>
+</html>
